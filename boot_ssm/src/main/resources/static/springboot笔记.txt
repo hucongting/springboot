@@ -1,0 +1,10 @@
+日志框架：
+1.如果要引入其他框架？一定要把这个框架的默认日志依赖移除掉吗？
+  SpringBoot能自动适配所有的日志，而且底层使用slf4j+logback的方式记录日志，引入其他框架时，只需要把这个框架依赖的日志框架排除掉。
+日志使用：
+  SpringBoot默认帮我们配置好了日志。
+日志级别：
+  SpringBoot默认给我们使用的是info级别的;
+  由低到高  trace<debug<info<warn<error;
+  可以调整输出的日志级别:application.properties;
+  #logging.level.com.tedu = trace
