@@ -1,6 +1,7 @@
 日志框架：
 1.如果要引入其他框架？一定要把这个框架的默认日志依赖移除掉吗？
   SpringBoot能自动适配所有的日志，而且底层使用slf4j+logback的方式记录日志，引入其他框架时，只需要把这个框架依赖的日志框架排除掉。
+2.如果你什么都不做，Spring Boot默认会使用Logback来打印和记录日志，并且它的日志级别是INFO，也就是说，它只输出级别比INFO高的日志（TRACE < DEBUG < INFO < WARN < ERROR）
 日志使用：
   SpringBoot默认帮我们配置好了日志。
 日志级别：
@@ -8,3 +9,55 @@
   由低到高  trace<debug<info<warn<error;
   可以调整输出的日志级别:application.properties;
   #logging.level.com.tedu = trace
+默认格式： %d{HH:mm:ss.SSS} %contextName [%thread] %-5level %logger{36} - %msg%n
+  %d  表示日期时间
+  %thread  表示线程名
+  %-5level  级别从左显示5个字符宽度
+  %logger{36}  表示logger名字最长36个字符，否则按照句点分割
+  %msg  日志消息
+  %n  是换行符
+日志文件大小超过10MB(可在file-appender.xml文件修改)会自动创建spring.log(版本号1+);
+3.指定日志配置文件：
+  3.1 给类路径下放上每个日志框架自己的配置文件即可，SpringBoot就不使用他默认配置;
+      logback日志框架: logback-spring.xml, logback-spring.groovy, logback.xml, logback.groovy
+      log4j日志框架: log4j-spring.xml, log4j2.xml
+      jdk(java.utill.logging): logging.properties
+      注意：logback.xml直接被日志框架识别了，logback.spring.xml日志框架不直接加载日志配置项，由SpringBoot解析日志配置，可以使用SpringBoot的高级Profile功能！否则使用会报错
+      <springProfile>
+        可以指定某段配置只在某个环境下生效
+      </springProfile>
+  3.2 logging.config
+
+
+Web开放
+1.SpringBoot对静态资源的映射
+    1.所有/webjars/**,都去classpath:/META-INF/resources/webjars/找资源;
+      webjars: 以jar包的方式引入静态资源
+      localhost:xxxx/webjars/jquery/3.3.1/dist/jquery.js
+    2./** 访问当前项目的任何资源(静态资源文件夹)
+      classpath:/WEB-INF/resources/
+      classpath:/resources/
+      classpath:/static/
+      classpath:/public/
+      /:当前项目的跟路径
+      localhost:xxxx/wenjinajia/文件
+      自定义静态文件夹目录:#spring.resources.static-locations=classpath:/xxxx/,系统默认的目录就不生效
+    3.小图标: 所有的**/favicon.ico,都是在静态资源文件下找
+
+
+模板引擎
+jsp,freemarker,velocity,Thymeleaf
+SpringBoot推荐的Thymeleaf:语法简单,功能强大.
+1.引入thymeleaf
+  切换thymeleaf版本:
+  <properties>
+    <thymeleaf.version>3.0.9.RELEASE</thymeleaf.version>
+    <thymeleaf.layout-dialect.version>2.2.2</thymeleaf.layout-dialect.version>
+  </properties>
+
+
+
+
+
+
+

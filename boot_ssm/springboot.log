@@ -1,0 +1,38 @@
+2018-07-07 09:46:58.080  INFO 6917 --- [main] com.tedu.BootSsmApplicationTests         : Starting BootSsmApplicationTests on localhost.localdomain with PID 6917 (started by soft01 in /home/soft01/IdeaProjects/boot_ssm)
+2018-07-07 09:46:58.083 DEBUG 6917 --- [main] com.tedu.BootSsmApplicationTests         : Running with Spring Boot v1.5.14.RELEASE, Spring v4.3.18.RELEASE
+2018-07-07 09:46:58.084  INFO 6917 --- [main] com.tedu.BootSsmApplicationTests         : No active profile set, falling back to default profiles: default
+2018-07-07 09:46:58.640  INFO 6917 --- [main] o.s.w.c.s.GenericWebApplicationContext   : Refreshing org.springframework.web.context.support.GenericWebApplicationContext@7c83dc97: startup date [Sat Jul 07 09:46:58 CST 2018]; root of context hierarchy
+2018-07-07 09:47:01.045  INFO 6917 --- [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.web.context.support.GenericWebApplicationContext@7c83dc97: startup date [Sat Jul 07 09:46:58 CST 2018]; root of context hierarchy
+2018-07-07 09:47:01.111  INFO 6917 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/boot/index]}" onto public java.lang.String com.tedu.controller.TestController.hello(javax.servlet.http.HttpServletRequest)
+2018-07-07 09:47:01.112  INFO 6917 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/boot/test]}" onto public java.lang.String com.tedu.controller.TestController.test()
+2018-07-07 09:47:01.115  INFO 6917 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-07-07 09:47:01.116  INFO 6917 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2018-07-07 09:47:01.146  INFO 6917 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-07-07 09:47:01.146  INFO 6917 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-07-07 09:47:01.182  INFO 6917 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-07-07 09:47:01.898  INFO 6917 --- [main] com.tedu.BootSsmApplicationTests         : Started BootSsmApplicationTests in 4.47 seconds (JVM running for 6.331)
+2018-07-07 09:47:01.968 TRACE 6917 --- [main] com.tedu.BootSsmApplicationTests         : 这是trace日志。。。
+2018-07-07 09:47:01.969 DEBUG 6917 --- [main] com.tedu.BootSsmApplicationTests         : 这是debug日志。。。
+2018-07-07 09:47:01.969  INFO 6917 --- [main] com.tedu.BootSsmApplicationTests         : 这是info日志。。。
+2018-07-07 09:47:01.969  WARN 6917 --- [main] com.tedu.BootSsmApplicationTests         : 这是warn日志。。。
+2018-07-07 09:47:01.969 ERROR 6917 --- [main] com.tedu.BootSsmApplicationTests         : 这是error日志。。。
+2018-07-07 09:47:01.979  INFO 6917 --- [Thread-2] o.s.w.c.s.GenericWebApplicationContext   : Closing org.springframework.web.context.support.GenericWebApplicationContext@7c83dc97: startup date [Sat Jul 07 09:46:58 CST 2018]; root of context hierarchy
+2018-07-07 09:49:53.792  INFO 7121 --- [main] com.tedu.BootSsmApplicationTests         : Starting BootSsmApplicationTests on localhost.localdomain with PID 7121 (started by soft01 in /home/soft01/IdeaProjects/boot_ssm)
+2018-07-07 09:49:53.794 DEBUG 7121 --- [main] com.tedu.BootSsmApplicationTests         : Running with Spring Boot v1.5.14.RELEASE, Spring v4.3.18.RELEASE
+2018-07-07 09:49:53.795  INFO 7121 --- [main] com.tedu.BootSsmApplicationTests         : No active profile set, falling back to default profiles: default
+2018-07-07 09:49:54.682  INFO 7121 --- [main] o.s.w.c.s.GenericWebApplicationContext   : Refreshing org.springframework.web.context.support.GenericWebApplicationContext@7c83dc97: startup date [Sat Jul 07 09:49:54 CST 2018]; root of context hierarchy
+2018-07-07 09:49:56.819  INFO 7121 --- [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.web.context.support.GenericWebApplicationContext@7c83dc97: startup date [Sat Jul 07 09:49:54 CST 2018]; root of context hierarchy
+2018-07-07 09:49:56.903  INFO 7121 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/boot/index]}" onto public java.lang.String com.tedu.controller.TestController.hello(javax.servlet.http.HttpServletRequest)
+2018-07-07 09:49:56.905  INFO 7121 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/boot/test]}" onto public java.lang.String com.tedu.controller.TestController.test()
+2018-07-07 09:49:56.907  INFO 7121 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-07-07 09:49:56.908  INFO 7121 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2018-07-07 09:49:56.952  INFO 7121 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-07-07 09:49:56.952  INFO 7121 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-07-07 09:49:57.011  INFO 7121 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-07-07 09:49:57.784  INFO 7121 --- [main] com.tedu.BootSsmApplicationTests         : Started BootSsmApplicationTests in 4.679 seconds (JVM running for 6.022)
+2018-07-07 09:49:57.857 TRACE 7121 --- [main] com.tedu.BootSsmApplicationTests         : 这是trace日志。。。
+2018-07-07 09:49:57.857 DEBUG 7121 --- [main] com.tedu.BootSsmApplicationTests         : 这是debug日志。。。
+2018-07-07 09:49:57.858  INFO 7121 --- [main] com.tedu.BootSsmApplicationTests         : 这是info日志。。。
+2018-07-07 09:49:57.858  WARN 7121 --- [main] com.tedu.BootSsmApplicationTests         : 这是warn日志。。。
+2018-07-07 09:49:57.860 ERROR 7121 --- [main] com.tedu.BootSsmApplicationTests         : 这是error日志。。。
+2018-07-07 09:49:57.872  INFO 7121 --- [Thread-2] o.s.w.c.s.GenericWebApplicationContext   : Closing org.springframework.web.context.support.GenericWebApplicationContext@7c83dc97: startup date [Sat Jul 07 09:49:54 CST 2018]; root of context hierarchy
