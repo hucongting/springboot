@@ -29,7 +29,9 @@
   3.2 logging.config
 
 
-Web开放
+
+
+Web开发
 1.SpringBoot对静态资源的映射
     1.所有/webjars/**,都去classpath:/META-INF/resources/webjars/找资源;
       webjars: 以jar包的方式引入静态资源
@@ -45,6 +47,8 @@ Web开放
     3.小图标: 所有的**/favicon.ico,都是在静态资源文件下找
 
 
+
+
 模板引擎
 jsp,freemarker,velocity,Thymeleaf
 SpringBoot推荐的Thymeleaf:语法简单,功能强大.
@@ -54,10 +58,37 @@ SpringBoot推荐的Thymeleaf:语法简单,功能强大.
     <thymeleaf.version>3.0.9.RELEASE</thymeleaf.version>
     <thymeleaf.layout-dialect.version>2.2.2</thymeleaf.layout-dialect.version>
   </properties>
+2.表达式：
+  1.${...}: OGNL; 获取变量值
+    1) 获取对象的属性,调用方法
+    2)使用内置基本对象(request,response,session,servletContext...)
+    3)内置的一些工具对象
+  2.*{...}: 变量选择表达式, 和${...}在功能上是一样
+    补充: 配合th:object="${session.xxx}"使用
+  3.#{...}: 获取国际化内容
+  4.@{...}: 定义URL
+  5.～{...}: 片段引用表达式
 
 
 
 
+SpringMVC自动配置
+  自动配置了ViewResolver(视图解析器：根据方法的返回值得到视图对象(View),视图对象决定如何渲染(转发，重定向))
+  ContentNegotiatingViewResolver: 组合所有的视图解析器;
+  如何定制：我们可以自己给容器中添加一个视图解析器,自动的将其结合进来;
+  Converter:转换器
+  Formatter:格式化器
+  HttpMessageConverter: SpringMVC用来转化Http请求和响应的;
+  HttpMessageConverters是从容器中确定，获取所有的HttpMessageConverter
+
+
+如何修改SpringBoot的默认配置
+  模式：
+  1.SpringBoot在自动配置很多组件的时候，先看容器中有没有用户自己配置的(@Bean,@Component)如果有就用用户配置的,如果没有才自动配置;如果有些组件可以有多个(ViewResolver)将用户配置的和自己默认的组合起来
+
+
+扩展SpringMVC
+  编写一个配置类(@Configuration),是WebMvcConfigurerAdapter类型;不能标注@EnableWebMvc
 
 
 
