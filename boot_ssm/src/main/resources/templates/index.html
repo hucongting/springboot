@@ -1,86 +1,80 @@
 <!DOCTYPE html>
-<html lang="zh" xmlns:th="http://www.w3.org/1999/xhtml">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>计算器</title>
-    <style type="text/css">
-        div{
-            border: 3px solid silver;
-            float: left;
-            border-radius: 5px;
-        }
-        #div_big{
-            width: 240px;
-            height: 300px;
-            background-color: aliceblue ;
-            padding: 5px;
-        }
-        #div_text{
-            width: 172px;
-            height: 50px;
-            margin-right: 5px;
-            margin-bottom: 5px;
-        }
-        #div_c{
-            width: 50px;
-            height: 50px;
-            margin-bottom: 5px;
-            float: left;
-        }
-        #div_7{width: 50px;height: 50px;margin-right: 5px;}
-        #div_8{width: 50px;height: 50px;margin-right: 5px;}
-        #div_9{width: 50px;height: 50px;margin-right: 5px;}
-        #div_{width: 50px;height: 50px;}
-
-        #div_4{width: 50px;height: 50px;margin-right: 5px;margin-top: 5px;margin-bottom: 5px;}
-        #div_5{width: 50px;height: 50px;margin-right: 5px;margin-top: 5px;margin-bottom: 5px;}
-        #div_6{width: 50px;height: 50px;margin-right: 5px;margin-top: 5px;margin-bottom: 5px;}
-        #divx{width: 50px;height: 50px;margin-top: 5px;}
-
-        #div_1{width: 50px;height: 50px;margin-right: 5px;margin-bottom: 5px;}
-        #div_2{width: 50px;height: 50px;margin-right: 5px;margin-bottom: 5px;}
-        #div_3{width: 50px;height: 50px;margin-right: 5px;margin-bottom: 5px;}
-        #div-{width: 50px;height: 50px;}
-
-        #div_0{width: 50px;height: 50px;margin-right: 5px;margin-bottom: 5px;}
-        #div_d{width: 50px;height: 50px;margin-right: 5px;margin-bottom: 5px;}
-        #div_dy{width: 50px;height: 50px;margin-right: 5px;margin-bottom: 5px;}
-        #divj{width: 50px;height: 50px;}
-    </style>
-    <script type="text/javascript">
-        function myfn(btn) {
-            var p = document.getElementById("p_text");
-            if(btn.value == "c"){
-                p.innerText = "";
-            }else {
-                p.innerText += btn.value;
-            }
-        }
-    </script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <title>layout 后台大布局 - Layui</title>
+  <link rel="stylesheet" href="./layui/css/layui.css">
 </head>
-<body>
-    <div id="div_big">
-        <div id="div_text"><p id="p_text"></p></div>
-        <div id="div_c"><input  type="button" onclick="myfn(this)" value="c"></div>
-        <div id="div_7"><input  type="button" onclick="myfn(this)" value="7"></div>
-        <div id="div_8"><input  type="button" onclick="myfn(this)" value="8"></div>
-        <div id="div_9"><input type="button" onclick="myfn(this)" value="9"></div>
-        <div id="div_"><input  type="button" onclick="myfn(this)" value="/"></div>
+<body class="layui-layout-body">
+<div class="layui-layout layui-layout-admin">
+  <div class="layui-header">
+    <div class="layui-logo">后台管理系统</div>
+    <!-- 头部区域（可配合layui已有的水平导航） -->
+  
+    <ul class="layui-nav layui-layout-right">
+      <li class="layui-nav-item">
+        <a href="javascript:;">
+          <img src="http://t.cn/RCzsdCq" class="layui-nav-img">
+          贤心
+        </a>
+        <dl class="layui-nav-child">
+          <dd><a href="">基本资料</a></dd>
+          <dd><a href="">安全设置</a></dd>
+        </dl>
+      </li>
+      <li class="layui-nav-item"><a href="">退出</a></li>
+    </ul>
+  </div>
+  
+  <div class="layui-side layui-bg-black">
+    <div class="layui-side-scroll">
+      <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
+      <ul class="layui-nav layui-nav-tree"  lay-filter="test">
 
-        <div id="div_4" onclick="myfn(this);">4</div>
-        <div id="div_5" onclick="myfn(this);">5</div>
-        <div id="div_6" onclick="myfn(this);">6</div>
-        <div id="divx" onclick="myfn(this);">*</div>
-
-        <div id="div_1" onclick="myfn(this);">1</div>
-        <div id="div_2" onclick="myfn(this);">2</div>
-        <div id="div_3" onclick="myfn(this);">3</div>
-        <div id="div-" onclick="myfn(this);">-</div>
-
-        <div id="div_0" onclick="myfn(this);">1</div>
-        <div id="div_d" onclick="myfn(this);">.</div>
-        <div id="div_dy" onclick="myfn(this);">=</div>
-        <div id="divj" onclick="myfn(this);">+</div>
+        <li class="layui-nav-item">
+          <a class="" href="javascript:;">系统设置</a>
+          <dl class="layui-nav-child">
+            <dd><a href="sysConfig.html">系统变量</a></dd>
+          </dl>
+        </li>
+        <li class="layui-nav-item">
+          <a href="javascript:;">用户管理</a>
+          <dl class="layui-nav-child">
+            <dd><a href="admin.html">用户列表</a></dd>
+          </dl>
+        </li>
+        <li class="layui-nav-item">
+            <a href="javascript:;">权限管理</a>
+            <dl class="layui-nav-child">
+                <dd><a href="rule.html">规则列表</a></dd>
+                <dd><a href="role.html">角色列表</a></dd>
+                <dd><a href="adminRole.html">用户角色</a></dd>
+            </dl>
+        </li>
+        <li class="layui-nav-item">
+                <a href="javascript:;">会员管理</a>
+                <dl class="layui-nav-child">
+                    <dd><a href="member.html">会员列表</a></dd>
+                </dl>
+        </li>
+     
+       
+      </ul>
     </div>
+  </div>
+  
+  <div class="layui-body">   
+  	sdfsfsdfsdf
+  <div>
+  
+  <div class="layui-footer">
+    <!-- 底部固定区域 -->
+    © layui.com - 底部固定区域
+  </div>
+</div>
+<script type="text/javascript" src="./javascript/jquery.min.js"></script>
+<script type="text/javascript" src="./layui/layui.js"></script>
+<script type="text/javascript" src="./javascript/index.js"></script>
 </body>
 </html>

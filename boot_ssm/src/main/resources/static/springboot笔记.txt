@@ -1,3 +1,5 @@
+开发技巧：禁用缓存, Ctrl+F9不重启刷新页面(重新编译)
+
 日志框架：
 1.如果要引入其他框架？一定要把这个框架的默认日志依赖移除掉吗？
   SpringBoot能自动适配所有的日志，而且底层使用slf4j+logback的方式记录日志，引入其他框架时，只需要把这个框架依赖的日志框架排除掉。
@@ -85,10 +87,25 @@ SpringMVC自动配置
 如何修改SpringBoot的默认配置
   模式：
   1.SpringBoot在自动配置很多组件的时候，先看容器中有没有用户自己配置的(@Bean,@Component)如果有就用用户配置的,如果没有才自动配置;如果有些组件可以有多个(ViewResolver)将用户配置的和自己默认的组合起来
-
-
+  2.在SpringBoot中会有非常多的xxxConfigurer帮助我们进行扩展配置.
 扩展SpringMVC
   编写一个配置类(@Configuration),是WebMvcConfigurerAdapter类型;不能标注@EnableWebMvc
+
+全面接管SpringMVC:
+  SpringBoot对SpringMVC的自动配置不需要了，所有都是我们自己配置,所有的SpringMVC的自动配置都失效了
+  我们需要在类中添加@EnableWebMvc即可;
+为什么加了@EnableWebMvc自动配置就失效了？
+
+
+SpringBoot国际化(配置文件可以直接放到类路径下叫 messages.properties)
+    1) 编写国际化配置文件,抽取页面需要显示国际化的信息
+    2) SpringBoot自动配置好了管理国际化资源文件的组件
+    3) 配置spring.messages.basename=i18n.login
+    4) 去页面获取国际化的值
+
+
+
+
 
 
 

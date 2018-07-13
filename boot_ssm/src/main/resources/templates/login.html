@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>后台管理系统-登录</title>
+    <link rel="stylesheet" th:href="@{/layui/css/layui.css}" type="text/css" href="./layui/css/layui.css" media="all" />
+    <link rel="stylesheet" th:href="@{/css/login.css}" type="text/css" href="./css/login.css" />
+</head>
+<body class="beg-login-bg">
+    <div class="beg-login-box">
+        <header>
+            <h1 th:text="#{login.tip}"></h1>
+        </header>
+        <div class="beg-login-main">
+            <p >sdfsdf</p>
+            <form action="index.html" th:action="@{user/login}" class="layui-form" method="post">
+
+                <div class="layui-form-item">
+                    <label class="beg-login-icon">
+                        <i class="layui-icon">&#xe612;</i>
+                    </label>
+                    <input type="text" lay-verify="required" name="name" autocomplete="off" placeholder="Username" th:placeholder="#{login.username}" class="layui-input" lay-verType="tips">
+                </div>
+                <div class="layui-form-item">
+                    <label class="beg-login-icon">
+                        <i class="layui-icon">&#xe642;</i>
+                    </label>
+                    <input type="password" lay-verify="required" name="password" autocomplete="off" placeholder="Password" th:placeholder="#{login.userpwd}" class="layui-input" lay-verType="tips">
+                </div>
+                <div class="layui-form-item">
+                    <div class="beg-pull">
+                        <button type="submit" class="layui-btn layui-btn-normal" style="width:100%;" lay-submit lay-filter="formDemo" th:text="#{login.btn}">
+                            Sign in
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <footer>
+            <p>power by dw © </p>
+        </footer>
+    </div>
+    <script type="text/javascript" th:src="@{/javascript/jquery.min.js}" src="./javascript/jquery.min.js"></script>
+    <script type="text/javascript" th:src="@{/layui/layui.js}" src="./layui/layui.js"></script>
+    <script type="text/javascript" th:src="@{/javascript/login.js}" src="./javascript/login.js"></script>
+</body>
+</html>
