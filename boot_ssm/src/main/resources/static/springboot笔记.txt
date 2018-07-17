@@ -103,8 +103,11 @@ SpringBoot国际化(配置文件可以直接放到类路径下叫 messages.prope
     3) 配置spring.messages.basename=i18n.login
     4) 去页面获取国际化的值
 
-
-
+错误处理机制
+    springboot默认的错误处理机制，默认的出错页面，如果是其他客户端则返回json数据。
+    原理可以参照ErrorMvcAutoConfiguration; 错误处理的自动配置;
+    如何定制错误响应:
+        如何定制错误的页面
 
 
 

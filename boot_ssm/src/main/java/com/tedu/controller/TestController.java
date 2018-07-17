@@ -10,7 +10,6 @@ import java.util.Arrays;
 import java.util.List;
 
 @Controller
-//@RequestMapping("/boot")
 public class TestController {
 
     @RequestMapping({"/","/login"})

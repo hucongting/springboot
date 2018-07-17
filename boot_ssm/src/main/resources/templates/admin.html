@@ -1,12 +1,28 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <title>layout 后台大布局 - Layui</title>
-  <link rel="stylesheet" href="./layui/css/layui.css">
-  <link rel="stylesheet" href="./css/global.css">
-  <link rel="stylesheet" href="./icheck/minimal/red.css">
+  <link rel="stylesheet" href="./layui/css/layui.css" th:href="@{/layui/css/layui.css}">
+  <link rel="stylesheet" href="./css/global.css" th:href="@{/css/global.css}">
+  <link rel="stylesheet" href="./icheck/minimal/red.css" th:href="@{/icheck/minimal/red.css}">
+  <link rel="stylesheet" href="./layer/theme/default/layer.css" th:href="@{layer/theme/default/layer.css}">
+  <script type="text/javascript" src="./javascript/jquery.min.js" th:src="@{/javascript/jquery.min.js}"></script>
+  <script type="text/javascript">
+      $(function () {
+          $('#btn_insert').click(function () {
+              layer.open({
+                  type: 2,
+                  title: '新增用户',
+                  shadeClose: true,
+                  shade: 0.8,
+                  area: ['70%', '70%'],
+                  content: '/user/add_page'
+              });
+          });
+      });
+  </script>
 </head>
 <body class="layui-layout-body">
 <div class="layui-layout layui-layout-admin">
@@ -14,7 +30,7 @@
     <div class="layui-logo">layui 后台布局</div>
     <!-- 头部区域（可配合layui已有的水平导航） -->
     <ul class="layui-nav layui-layout-left">
-      <li class="layui-nav-item"><a href="admin.html">用户列表</a></li>
+      <li class="layui-nav-item"><a href="admin.html" th:href="@{/user/admin}">用户列表</a></li>
       <li class="layui-nav-item"><a href="member.html">会员列表</a></li>
     </ul>
     <ul class="layui-nav layui-layout-right">
@@ -101,10 +117,8 @@
                 </div>
               </form>
               <hr>
+                <input type="button" id="btn_insert" value="Insert">
               <div class="layui-btn-group">
-                  <button class="layui-btn layui-btn-xs layui-btn-normal dw-dailog" dw-url="create.html" dw-title="新增用户" dw-width="100%" dw-height="100%">
-                      <i class="layui-icon">&#xe654;</i>新增
-                  </button>
                   <button class="layui-btn layui-btn-xs layui-btn-danger dw-batch-delete" dw-url="./delete.json">
                       <i class="layui-icon">&#xe640;</i>删除
                   </button>
@@ -126,59 +140,32 @@
                       <th class="selectAll"><input type="checkbox"></th>
                       <th>昵称</th>
                       <th>加入时间</th>
-                      <th>签名</th>
+                      <th>Password</th>
                       <th style="text-align:center;">操作</th>
                       </tr> 
                   </thead>
                   <tbody>
-                      <tr>
-                      <td><input type="checkbox" name="id" value="1"></td>
-                      <td>贤心</td>
-                      <td>2016-11-29</td>
-                      <td>人生就像是一场修行</td>
-                      <td class="text-center">
-                        <div class="layui-btn-group">
-                          <button class="layui-btn layui-btn-xs layui-btn-normal dw-dailog" dw-url="create.html?id=1" dw-title="编辑用户">
-                            <i class="layui-icon">&#xe642;</i>编辑
-                          </button>
-                          <button class="layui-btn layui-btn-xs layui-btn-danger dw-delete" dw-url="delete.html?id=1" dw-title="小明">
-                            <i class="layui-icon">&#xe640;</i>删除
-                          </button>
-                        </div>
-                      </td>
+                      <tr th:each="person : ${persons}">
+                          <td th:inline="text"><input type="checkbox" name="id" value="3 " th:value="${person.id}">[[${person.id}]]</td>
+                          <td th:text="${person.username}"></td>
+                          <td th:text="${#dates.format(person.createtime,'yyyy-MM-dd HH:mm')}">2016-11-27</td>
+                          <td th:text="${person.userpwd}">xxxxx</td>
+                          <td class="text-center">
+                              <div class="layui-btn-group">
+                                  <button class="layui-btn layui-btn-xs layui-btn-normal dw-dailog" dw-url="create.html?id=1" dw-title="编辑用户">
+                                    <i class="layui-icon">&#xe642;</i>编辑
+                                  </button>
+                                  <button th:attr="del_uri=@{/user/emp/}+${person.id}"  class="layui-btn layui-btn-xs layui-btn-danger deleteBtn">删除</button>
+
+                                </div>
+                          </td>
                       </tr>
-                      <tr>
-                      <td><input type="checkbox" name="id" value="2"></td>
-                      <td>许闲心</td>
-                      <td>2016-11-28</td>
-                      <td>于千万人之中遇见你所遇见的人，于千万年之中，时间的无涯的荒野里…</td>
-                      <td class="text-center">
-                          <div class="layui-btn-group">
-                              <button class="layui-btn layui-btn-xs layui-btn-normal dw-dailog" dw-url="create.html?id=1" dw-title="编辑用户">
-                                <i class="layui-icon">&#xe642;</i>编辑
-                              </button>
-                              <button class="layui-btn layui-btn-xs layui-btn-danger dw-delete" dw-url="delete.html?id=1" dw-title="小明">
-                                <i class="layui-icon">&#xe640;</i>删除
-                              </button>
-                            </div>
-                      </td>
-                      </tr>
-                      <tr>
-                      <td><input type="checkbox" name="id" value="3 "></td>
-                      <td>sentsin</td>
-                      <td>2016-11-27</td>
-                      <td> Life is either a daring adventure or nothing.</td>
-                      <td class="text-center">
-                          <div class="layui-btn-group">
-                              <button class="layui-btn layui-btn-xs layui-btn-normal dw-dailog" dw-url="create.html?id=1" dw-title="编辑用户">
-                                <i class="layui-icon">&#xe642;</i>编辑
-                              </button>
-                              <button class="layui-btn layui-btn-xs layui-btn-danger dw-delete" dw-url="delete.html?id=1" dw-title="小明">
-                                <i class="layui-icon">&#xe640;</i>删除
-                              </button>
-                            </div>
-                      </td>
-                      </tr>
+
+                      <form id="deleteEmpForm"  method="post">
+                          <input type="submit" th:value="删除">
+                          <input type="hidden" name="_method" value="delete">
+                      </form>
+
                   </tbody>
               </table>
             </div>
@@ -191,9 +178,19 @@
     © layui.com - 底部固定区域
   </div>
 </div>
-<script type="text/javascript" src="./javascript/jquery.min.js"></script>
-<script type="text/javascript" src="./layui/layui.js"></script>
-<script type="text/javascript" src="./icheck/icheck.js"></script>
-<script type="text/javascript" src="./javascript/dw.js"></script>
+
+<script type="text/javascript" src="./layui/layui.js" th:src="@{/layui/layui.js}"></script>
+<script type="text/javascript" src="./icheck/icheck.js" th:src="@{/icheck/icheck.js}"></script>
+<script type="text/javascript" src="./javascript/dw.js" th:src="@{/javascript/dw.js}"></script>
+<script type="text/javascript" src="./layer/layer.js" th:src="@{/layer/layer.js}"></script>
+<script>
+    $(function () {
+        $('.deleteBtn').click(function () {
+            //删除当前员工
+            $('#deleteEmpForm').attr("action",$(this).attr("del_uri")).submit();
+            return false;
+        });
+    });
+</script>
 </body>
 </html>

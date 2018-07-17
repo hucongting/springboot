@@ -1,5 +1,12 @@
 package com.tedu.entity;
 
+import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.stereotype.Component;
+
+import java.util.Date;
+
+@Component
+@ConfigurationProperties(prefix = "person")
 public class Person {
 
     private int id;
@@ -8,6 +15,10 @@ public class Person {
 
     private String userpwd;
 
+    private Date createtime;
+
+
+
     public Person() {
     }
 
@@ -15,6 +26,13 @@ public class Person {
         this.id = id;
         this.username = username;
         this.userpwd = userpwd;
+    }
+
+    public Person(int id, String username, String userpwd, Date createtime) {
+        this.id = id;
+        this.username = username;
+        this.userpwd = userpwd;
+        this.createtime = createtime;
     }
 
     public int getId() {
@@ -41,12 +59,21 @@ public class Person {
         this.userpwd = userpwd;
     }
 
+    public Date getCreatetime() {
+        return createtime;
+    }
+
+    public void setCreatetime(Date createtime) {
+        this.createtime = createtime;
+    }
+
     @Override
     public String toString() {
         return "Person{" +
                 "id=" + id +
                 ", username='" + username + '\'' +
                 ", userpwd='" + userpwd + '\'' +
+                ", createtime=" + createtime +
                 '}';
     }
 }

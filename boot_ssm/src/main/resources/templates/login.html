@@ -9,35 +9,41 @@
     <link rel="stylesheet" th:href="@{/css/login.css}" type="text/css" href="./css/login.css" />
 </head>
 <body class="beg-login-bg">
-    <div class="beg-login-box">
-        <header>
-            <h1 th:text="#{login.tip}"></h1>
-        </header>
-        <div class="beg-login-main">
-            <p >sdfsdf</p>
-            <form action="index.html" th:action="@{user/login}" class="layui-form" method="post">
+<p th:text="${msg}" th:if="${not #strings.isEmpty(msg)}"></p>
+<form th:action="@{/user/login}" action="index.html" method="post">
+    UserName: <input type="text" placeholder="Username" name="name" th:placeholder="#{login.username}" class="layui-input" ><br>
+    PassWord: <input type="password" name="password" placeholder="Password" th:placeholder="#{login.userpwd}" class="layui-input"><br>
+    <input type="submit" value="Login in">
+</form>
+    <!--<div class="beg-login-box">-->
+        <!--<header>-->
+            <!--<h1 th:text="#{login.tip}"></h1>-->
+        <!--</header>-->
+        <!--<div class="beg-login-main">-->
+            <!--<p >sdfsdf</p>-->
+            <!--<form action="index.html" th:action="@{user/login}" class="layui-form" method="post">-->
 
-                <div class="layui-form-item">
-                    <label class="beg-login-icon">
-                        <i class="layui-icon">&#xe612;</i>
-                    </label>
-                    <input type="text" lay-verify="required" name="name" autocomplete="off" placeholder="Username" th:placeholder="#{login.username}" class="layui-input" lay-verType="tips">
-                </div>
-                <div class="layui-form-item">
-                    <label class="beg-login-icon">
-                        <i class="layui-icon">&#xe642;</i>
-                    </label>
-                    <input type="password" lay-verify="required" name="password" autocomplete="off" placeholder="Password" th:placeholder="#{login.userpwd}" class="layui-input" lay-verType="tips">
-                </div>
-                <div class="layui-form-item">
-                    <div class="beg-pull">
-                        <button type="submit" class="layui-btn layui-btn-normal" style="width:100%;" lay-submit lay-filter="formDemo" th:text="#{login.btn}">
-                            Sign in
-                        </button>
-                    </div>
-                </div>
-            </form>
-        </div>
+                <!--<div class="layui-form-item">-->
+                    <!--<label class="beg-login-icon">-->
+                        <!--<i class="layui-icon">&#xe612;</i>-->
+                    <!--</label>-->
+                    <!--<input type="text" lay-verify="required" name="name" autocomplete="off" placeholder="Username" th:placeholder="#{login.username}" class="layui-input" lay-verType="tips">-->
+                <!--</div>-->
+                <!--<div class="layui-form-item">-->
+                    <!--<label class="beg-login-icon">-->
+                        <!--<i class="layui-icon">&#xe642;</i>-->
+                    <!--</label>-->
+                    <!--<input type="password" lay-verify="required" name="password" autocomplete="off" placeholder="Password" th:placeholder="#{login.userpwd}" class="layui-input" lay-verType="tips">-->
+                <!--</div>-->
+                <!--<div class="layui-form-item">-->
+                    <!--<div class="beg-pull">-->
+                        <!--<button type="submit" class="layui-btn layui-btn-normal" style="width:100%;" lay-submit lay-filter="formDemo" th:text="#{login.btn}">-->
+                            <!--Sign in-->
+                        <!--</button>-->
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</form>-->
+        <!--</div>-->
         <footer>
             <p>power by dw © </p>
         </footer>
