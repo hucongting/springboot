@@ -1,0 +1,3 @@
+启动： service redisd start
+关闭： service redisd stop
+打开终端： redis-cli

@@ -1,0 +1,33 @@
+Docker核心概念：
+    docker主机(Host): 安装了Docker程序的机器(Docker直接安装在操作系统之上)
+    docker客户端(Client): 连接docker主机进行操作
+    docker仓库(Registry): Docker仓库用来保存镜像,可以理解为代码控制中的代码仓库
+    docker镜像(Images): 软件打包好的镜像; 放在docker仓库中
+    docker容器(Container): 镜像启动后的实例称为一个容器
+
+Liunx安装Docker
+    rname -r检查内核版本要大于3.10
+    1.yum install docker
+    2.启动docker: systemctl start docker
+    3.查看版本:    docker -v
+    设置开机启动：systemctl enable docker
+    启动docker: service docker docker
+    停止docker: systemctl stop docker
+
+常用操作：
+    到仓库搜索相关镜像: docker search xxx(mysql)
+    拉取: docker pull xxx(mysql)
+         docker pull java   #从Docker Hub中下载最新版本的Java镜像
+         docker pull reg.itmuch.com/java:8    #从指定Registry中下载标签为8的Java镜像
+    查看镜像: docker images
+    根据镜像启动容器: docker run --name 命名 -d REPOSITORY(镜像名):TAG(版本号)
+    查看运行中的容器: docker ps
+
+
+
+
+
+
+
+
+
