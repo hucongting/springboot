@@ -1,0 +1,15 @@
+Ctrl+Alt+V生成返回对象
+
+1.5.14版本：默认 class org.apache.tomcat.jdbc.pool.DataSource 数据源
+
+运行建表语句：
+    schema-*.sql、data-*.sql
+    默认规则：schema.sql，schema-all.sql；
+    可以使用
+      schema:
+          - classpath:department.sql
+          指定位置
+
+
+
+
