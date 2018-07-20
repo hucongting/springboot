@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../js/jquery-3.1.1.min.js"></script>
+    <script type="text/javascript">
+        function fn1(){
+            var $li = $("<li>深圳</li>");
+            $("ul").append($li);
+        }
+        function fn2() {
+            var $li = $("<li>天津</li>");
+            //$("#sh").after($li); 后面
+            $("#sh").before($li);
+        }
+        function fn3() {
+            $("#sh").remove();
+        }
+
+    </script>
+</head>
+<body>
+    <ul>
+        <li>北京</li>
+        <li id="sh">上海</li>
+        <li>广州</li>
+    </ul>
+    <input type="button" value="添加" onclick="fn1()">
+    <input type="button" value="插入" onclick="fn2()">
+    <input type="button" value="删除" onclick="fn3()">
+</body>
+</html>

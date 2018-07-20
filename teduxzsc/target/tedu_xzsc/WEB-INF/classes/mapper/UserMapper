@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.tedu.dao.UserMapper">
+    <select id="SelUserList" resultType="com.tedu.entity.User">
+        select * from user
+    </select>
+    <!-- 登录简单验证 -->
+    <select id="ValidateUserByNamePwd" parameterType="java.lang.String" resultType="java.lang.Integer">
+        SELECT COUNT(*) FROM user WHERE username= #{username} AND userpwd= #{userpwd}
+    </select>
+</mapper>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.tedu.mapper.EmployeeMapper">
+    <!--
+        public Employee getEmployeeById();
+        public void insertEmployee(Employee employee);
+    -->
+    <select id="getEmployeeById" parameterType="java.lang.Integer" resultType="com.tedu.bean.Employee">
+        SELECT * FROM employee where empid = #{id}
+    </select>
+
+    <insert id="insertEmployee">
+        insert INTO employee (lastName,email,gender,dpid) values (#{lastName},#{email},#{gender},#{dpid})
+    </insert>
+</mapper>
